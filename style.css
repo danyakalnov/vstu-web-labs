@@ -60,6 +60,7 @@ h1 {
 }
 
 .menu {
+    background-color: red;
     width: 400px;
     height: 400px;
     display: none;
@@ -76,6 +77,11 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.menu-text {
+    margin: 20px;
 }
 
 .answer.no-match {
