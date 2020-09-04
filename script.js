@@ -5,17 +5,28 @@ const start = () => {
     }));
 
     const menu = document.querySelector('.menu');
-
     const button = document.querySelector('#button');
+    const menuText = document.querySelector('.menu-text');
+    const closeButton = document.querySelector('#close-button');
 
     button.addEventListener('click', () => {
         menu.classList.toggle('menu-show');
     });
 
     document.addEventListener('click', event => {
-        const isClickInside = menu.contains(event.target);
-        if (!isClickInside && menu.classList.contains('menu-show') && event.target !== button) {
-            menu.classList.toggle('menu-show');
+        const isClickOnMenu = event.target === menu;
+        const condition = !isClickOnMenu && 
+            menu.classList.contains('menu-show') &&
+            event.target !== button ||
+            event.target === closeButton;
+        if (condition) {
+            menuText.textContent = 'Пока...';
+            closeButton.disabled = true;
+            setTimeout(() => {
+                menu.classList.toggle('menu-show');
+                menuText.textContent = 'Привет!';
+                closeButton.disabled = false;
+            }, 1000);
         }
     });
 }
