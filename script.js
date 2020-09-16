@@ -25,7 +25,6 @@ const start = () => {
         regexp = newRegexp;
         regexpInput.textContent = event.target.value;
         myInputs.forEach(input => {
-            console.log();
             testInput(input);
         });
     });
